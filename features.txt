@@ -1,0 +1,26 @@
+New Features to Be Implemented
+
+- The project architecture will be updated. When workers are activated, a background server will be deployed and run. This server will handle all operations behind the scenes.
+
+- Think of this server as an office building. Workers should be able to communicate with each other within this environment. We’ve already implemented worker interaction methods, and they will be used here. Workers can send commands or requests to other workers via the server.
+
+- Introduce collaborative spaces where multiple workers can work together on shared tasks.
+
+- Divide workers into three main subgroups:
+  - **Executors**: Perform tasks and actions.
+  - **Planners**: Develop strategies and assign tasks to Executors.
+  - **Verifiers**: check/validate work. make sure output is good enough to send out to the user or to other workers in inter-worker communications.
+
+- In collaborative spaces, add features such as a shared whiteboard, shared files, or similar tools to facilitate teamwork.
+
+- Planners should have the ability to initialize new workers as needed to execute their plans or fulfill specific goals.
+
+- Implement two workspace modes:
+  - **Manual Mode**: The user manually creates and assigns workers for specific tasks.
+  - **Auto Mode**: An initial planner is automatically activated. This planner can create additional planners, each managing their own set of Executors, based on the user’s objectives.
+
+- Add abunch of new integrations/tools that the workers can use. 
+
+In self mode the initial planner has to create the flowchart that the "office" will use. It will decide how many planners there are, how many executors there will be, how many verifiers there will be and dictates the order in which they interact with each other to get the best possible result.
+
+All of this will be consolidated as v2 of the bot - it might require lots of complete chanegs

@@ -15,7 +15,7 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 
 setup(
     name="botted-library",
-    version="1.0.0",
+    version="1.0.1",
     author="Botted Library Team",
     author_email="contact@botted-library.com",
     description="Human-like AI workers that can use any tool to accomplish tasks - web search, coding, document creation, and more",

@@ -1,0 +1,75 @@
+{
+  "environment": "production",
+  "debug_mode": false,
+  "log_level": "WARNING",
+  "log_file_path": "/var/log/botted_library/production.log",
+  
+  "server_host": "0.0.0.0",
+  "server_port": 8765,
+  "server_max_connections": 200,
+  "server_timeout": 60,
+  "server_ssl_enabled": true,
+  "server_ssl_cert_path": "/etc/ssl/certs/botted_library.crt",
+  "server_ssl_key_path": "/etc/ssl/private/botted_library.key",
+  
+  "max_workers_per_type": {
+    "PLANNER": 10,
+    "EXECUTOR": 50,
+    "VERIFIER": 20
+  },
+  "worker_timeout": 600,
+  "worker_heartbeat_interval": 60,
+  "worker_max_memory_mb": 2048,
+  "worker_max_cpu_percent": 85.0,
+  
+  "max_collaborative_spaces": 100,
+  "max_participants_per_space": 50,
+  "space_timeout": 7200,
+  "space_cleanup_interval": 600,
+  
+  "plugin_directories": [
+    "/usr/local/lib/botted_library/plugins",
+    "/opt/botted_library/plugins"
+  ],
+  "auto_load_plugins": true,
+  "plugin_timeout": 120,
+  "max_plugins": 200,
+  
+  "tool_timeout": 600,
+  "max_concurrent_tools": 20,
+  "tool_retry_attempts": 3,
+  "tool_cache_enabled": true,
+  "tool_cache_size_mb": 512,
+  
+  "enable_monitoring": true,
+  "monitoring_interval": 60,
+  "metrics_retention_days": 30,
+  "performance_alerts_enabled": true,
+  "performance_threshold_cpu": 90.0,
+  "performance_threshold_memory": 85.0,
+  
+  "enable_error_recovery": true,
+  "max_retry_attempts": 5,
+  "retry_delay": 2.0,
+  "retry_exponential_backoff": true,
+  "error_notification_enabled": true,
+  "error_notification_email": "admin@company.com",
+  
+  "message_queue_size": 2000,
+  "message_batch_size": 20,
+  "cleanup_interval": 600,
+  "gc_interval": 1200,
+  
+  "enable_authentication": true,
+  "auth_token_expiry": 7200,
+  "max_login_attempts": 3,
+  "session_timeout": 3600,
+  
+  "database_url": "postgresql://botted:password@localhost:5432/botted_library",
+  "database_pool_size": 20,
+  "database_timeout": 60,
+  "database_backup_enabled": true,
+  "database_backup_interval": 43200,
+  
+  "test_mode": false
+}

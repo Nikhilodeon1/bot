@@ -18,8 +18,17 @@ Quick Start:
 __version__ = "1.0.0"
 __author__ = "Botted Library Team"
 
-# Simple interface (recommended for most users)
-from .simple_worker import Worker, create_worker
+# Simple interface (recommended for most users) - now with v2 collaborative features
+from .compatibility import Worker, create_worker
+
+# V2 System Integration (for collaborative features)
+from .core.system_integration import (
+    SystemIntegration, SystemConfiguration, get_system_integration,
+    initialize_v2_system, shutdown_v2_system
+)
+from .core.system_startup import (
+    SystemStartup, quick_start_system, create_default_startup
+)
 
 # Advanced interface (for power users who need fine control)
 from .core.worker import Worker as CoreWorker
@@ -48,6 +57,16 @@ __all__ = [
     # Simple interface (recommended)
     "Worker",
     "create_worker",
+    
+    # V2 System Integration
+    "SystemIntegration",
+    "SystemConfiguration", 
+    "get_system_integration",
+    "initialize_v2_system",
+    "shutdown_v2_system",
+    "SystemStartup",
+    "quick_start_system",
+    "create_default_startup",
     
     # Advanced interface
     "CoreWorker",

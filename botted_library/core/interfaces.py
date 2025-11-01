@@ -38,6 +38,13 @@ class ActionType(Enum):
     EXTRACT = "extract"
 
 
+class WorkerType(Enum):
+    """Enumeration for collaborative worker types"""
+    PLANNER = "planner"
+    EXECUTOR = "executor"
+    VERIFIER = "verifier"
+
+
 @dataclass
 class Task:
     """Data model for task representation"""

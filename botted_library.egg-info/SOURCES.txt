@@ -1,0 +1,12 @@
+ARCHITECTURE.md
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+requirements.txt
+setup.py
+botted_library.egg-info/PKG-INFO
+botted_library.egg-info/SOURCES.txt
+botted_library.egg-info/dependency_links.txt
+botted_library.egg-info/requires.txt
+botted_library.egg-info/top_level.txt

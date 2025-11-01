@@ -1,0 +1,62 @@
+{
+  "environment": "testing",
+  "debug_mode": false,
+  "test_mode": true,
+  "log_level": "ERROR",
+  "log_file_path": null,
+  
+  "server_host": "localhost",
+  "server_port": 8766,
+  "server_max_connections": 10,
+  "server_timeout": 10,
+  "server_ssl_enabled": false,
+  
+  "max_workers_per_type": {
+    "PLANNER": 1,
+    "EXECUTOR": 3,
+    "VERIFIER": 2
+  },
+  "worker_timeout": 60,
+  "worker_heartbeat_interval": 10,
+  "worker_max_memory_mb": 256,
+  "worker_max_cpu_percent": 50.0,
+  
+  "max_collaborative_spaces": 5,
+  "max_participants_per_space": 3,
+  "space_timeout": 300,
+  "space_cleanup_interval": 60,
+  
+  "plugin_directories": [
+    "test_plugins"
+  ],
+  "auto_load_plugins": false,
+  "plugin_timeout": 10,
+  "max_plugins": 10,
+  
+  "tool_timeout": 30,
+  "max_concurrent_tools": 2,
+  "tool_retry_attempts": 1,
+  "tool_cache_enabled": false,
+  "tool_cache_size_mb": 32,
+  
+  "enable_monitoring": false,
+  "monitoring_interval": 5,
+  "metrics_retention_days": 1,
+  "performance_alerts_enabled": false,
+  "performance_threshold_cpu": 95.0,
+  "performance_threshold_memory": 90.0,
+  
+  "enable_error_recovery": false,
+  "max_retry_attempts": 1,
+  "retry_delay": 0.1,
+  "retry_exponential_backoff": false,
+  "error_notification_enabled": false,
+  
+  "message_queue_size": 100,
+  "message_batch_size": 2,
+  "cleanup_interval": 30,
+  "gc_interval": 60,
+  
+  "enable_authentication": false,
+  "database_backup_enabled": false
+}

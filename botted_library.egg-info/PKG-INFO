@@ -1,0 +1,514 @@
+Metadata-Version: 2.4
+Name: botted-library
+Version: 1.0.1
+Summary: Human-like AI workers that can use any tool to accomplish tasks - web search, coding, document creation, and more
+Home-page: https://github.com/botted-library/botted-library
+Author: Botted Library Team
+Author-email: Botted Library Team <contact@botted-library.com>
+License: MIT License
+        
+        Copyright (c) 2024 Botted Library
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+Project-URL: Homepage, https://botted-library.com
+Project-URL: Documentation, https://github.com/botted-library/botted-library#readme
+Project-URL: Repository, https://github.com/botted-library/botted-library
+Project-URL: Bug Reports, https://github.com/botted-library/botted-library/issues
+Keywords: ai,automation,browser,selenium,llm,workers,intelligent,agents,human-like,research,coding
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet :: WWW/HTTP :: Browsers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Office/Business
+Classifier: Topic :: Utilities
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: selenium>=4.15.0
+Requires-Dist: beautifulsoup4>=4.12.0
+Requires-Dist: requests>=2.31.0
+Requires-Dist: webdriver-manager>=4.0.0
+Requires-Dist: google-generativeai>=0.3.0
+Provides-Extra: openai
+Requires-Dist: openai>=1.3.0; extra == "openai"
+Provides-Extra: anthropic
+Requires-Dist: anthropic>=0.7.0; extra == "anthropic"
+Provides-Extra: dev
+Requires-Dist: pytest>=7.4.0; extra == "dev"
+Requires-Dist: pytest-mock>=3.12.0; extra == "dev"
+Requires-Dist: black>=23.0.0; extra == "dev"
+Requires-Dist: flake8>=6.0.0; extra == "dev"
+Requires-Dist: mypy>=1.5.0; extra == "dev"
+Dynamic: author
+Dynamic: home-page
+Dynamic: license-file
+Dynamic: requires-python
+
+# 🤖 Botted Library
+
+**Human-like AI Workers for Any Task**
+
+Create AI workers with specific roles and expertise. Each worker can use any tool needed - web search, coding, document creation, email, and more. No role restrictions, just human-like intelligence.
+
+## 🚀 Quick Start
+
+### 1. Install
+
+```bash
+pip install -r requirements.txt
+
+# For Gemini 2.5 Flash (recommended):
+pip install google-generativeai
+
+# For OpenAI:
+pip install openai
+```
+
+### 2. Use
+
+```python
+from botted_library import create_worker
+
+# Create a human-like AI worker
+sarah = create_worker(
+    name="Sarah",
+    role="Marketing Manager", 
+    job_description="Expert in market research and strategy"
+)
+
+# Give them a task
+result = sarah.call("Research our top 3 competitors and analyze their pricing")
+
+# Get results
+print(result['summary'])
+research = result['deliverables']['research']
+```
+
+### 3. Try It
+
+```bash
+python getting_started.py
+```
+
+## 🤖 LLM Support
+
+### **Gemini 2.5 Flash (Recommended)**
+
+```python
+# Set API key
+export GEMINI_API_KEY="your-api-key"
+
+# Use Gemini
+config = {'llm': {'provider': 'gemini'}}
+worker = create_worker("smart_helper", "researcher", config)
+```
+
+### **OpenAI**
+
+```python
+# Set API key
+export OPENAI_API_KEY="your-api-key"
+
+# Use OpenAI
+config = {'llm': {'provider': 'openai', 'model': 'gpt-4'}}
+worker = create_worker("smart_helper", "researcher", config)
+```
+
+### **Mock AI (Default)**
+
+```python
+# No API key needed - works immediately
+worker = create_worker("helper", "planner")  # Uses mock AI
+```
+
+## 🎯 What It Does
+
+Your workers will:
+
+- ✅ **Plan tasks logically** - Break down complex requests into steps
+- ✅ **Use tools intelligently** - 14 different tools available to every worker
+- ✅ **Show live progress** - Real-time updates of what they're doing
+- ✅ **Deliver results** - Structured outputs with files, links, data
+- ✅ **Apply common sense** - Human-like reasoning and validation
+- ✅ **Remember important info** - Human-like memory with importance filtering
+- ✅ **Collaborate with others** - Workers can delegate tasks to each other
+
+## 👥 Create Any Type of Worker
+
+Workers are human-like with custom roles and expertise:
+
+```python
+# Marketing Manager
+sarah = create_worker("Sarah", "Marketing Manager", 
+    "Expert in market research, competitive analysis, and content strategy")
+
+# Software Developer  
+alex = create_worker("Alex", "Software Developer",
+    "Full-stack developer specializing in Python and web technologies")
+
+# Data Analyst
+maya = create_worker("Maya", "Data Analyst", 
+    "Expert in data analysis, statistical modeling, and business intelligence")
+
+# Content Writer
+jordan = create_worker("Jordan", "Content Writer",
+    "Professional writer specializing in technical documentation and marketing content")
+```
+
+**All workers have access to all 14 tools** - web search, coding, document creation, email, browser automation, etc. Their role and job description guide how they approach tasks and which tools they prioritize.
+
+## 📋 Configuration Options
+
+### **Complete Configuration Example**
+
+```python
+config = {
+    'llm': {
+        'provider': 'gemini',           # 'gemini', 'openai', 'mock'
+        'api_key': 'your-key',          # Or set environment variable
+        'model': 'gemini-2.5-flash',   # Model name
+        'temperature': 0.7,             # Creativity (0.0-1.0)
+        'max_tokens': 2048              # Response length
+    },
+    'browser': {
+        'headless': True,               # Hide browser window
+        'browser_type': 'chrome',       # 'chrome', 'edge', 'firefox'
+        'timeout': 30,                  # Page load timeout
+        'window_size': [1920, 1080]    # Browser window size
+    },
+    'memory': {
+        'auto_cleanup': True,           # Clean old memories
+        'database_path': 'custom.db',   # Custom database location
+        'max_short_term': 1000,         # Max short-term memories
+        'max_long_term': 10000          # Max long-term memories
+    },
+    'worker': {
+        'max_task_time': 300,           # Max task execution time (seconds)
+        'enable_progress': True,        # Show progress updates
+        'auto_store_results': True      # Store task results in memory
+    }
+}
+
+worker = create_worker("advanced_worker", "researcher", config)
+```
+
+### **Environment Variables**
+
+```bash
+# LLM API Keys
+export GEMINI_API_KEY="your-gemini-key"
+export OPENAI_API_KEY="your-openai-key"
+
+# Optional overrides
+export BOTTED_BROWSER_TYPE="edge"
+export BOTTED_HEADLESS="false"
+export BOTTED_LLM_PROVIDER="gemini"
+```
+
+## 🛠️ Tool Examples
+
+### **Web Search & Research**
+```python
+researcher = create_worker("Alice", "Research Analyst", "Expert in market research")
+
+# Web search with real results
+result = researcher.call("Search for the latest AI trends in 2024")
+search_results = result['deliverables']['research']['results']
+
+# Comprehensive research
+result = researcher.call("Research Python vs JavaScript for web development")
+```
+
+### **Code Generation & Testing**
+```python
+developer = create_worker("Bob", "Software Developer", "Python and web development expert")
+
+# Generate code
+result = developer.call("Create a REST API for user authentication using Flask")
+code = result['deliverables']['code']
+
+# Test code
+result = developer.call("Write unit tests for a calculator function")
+```
+
+### **Document & Content Creation**
+```python
+writer = create_worker("Carol", "Technical Writer", "Documentation and content expert")
+
+# Create documents
+result = writer.call("Create a user manual for our mobile app")
+document = result['deliverables']['documents'][0]
+
+# Create spreadsheets
+result = writer.call("Create a project timeline spreadsheet")
+```
+
+### **Browser Automation**
+```python
+automation_expert = create_worker("Dave", "Automation Specialist", "Web scraping and automation")
+
+# Navigate and extract data
+result = automation_expert.call("Go to example.com and extract all the links")
+
+# Take screenshots
+result = automation_expert.call("Visit our competitor's website and take a screenshot")
+```
+
+### **Email & Communication**
+```python
+assistant = create_worker("Emma", "Virtual Assistant", "Email and communication management")
+
+# Process emails
+result = assistant.call("Check my inbox and summarize important emails")
+
+# Send emails
+result = assistant.call("Send a follow-up email to the client about the project status")
+```
+
+### **Worker Collaboration**
+```python
+# Create multiple specialized workers
+researcher = create_worker("Alice", "Researcher", "Market research expert")
+developer = create_worker("Bob", "Developer", "Full-stack development")
+writer = create_worker("Carol", "Writer", "Technical documentation")
+
+# Workers can collaborate
+research_result = researcher.call("Research the best Python web frameworks")
+dev_result = developer.call("Based on Alice's research, create a Flask app structure")
+doc_result = writer.call("Create documentation for Bob's Flask app")
+
+# Or delegate tasks directly
+help_response = researcher.ask_for_help("How do I implement OAuth in Flask?", "developer")
+```
+
+## 📋 Real Examples
+
+### **Planning with Gemini**
+
+```python
+config = {'llm': {'provider': 'gemini'}}
+planner = create_worker("planner", "planner", config)
+
+result = planner.call(
+    "Create a 6-month business plan for a food truck",
+    budget="$50,000",
+    location="downtown area",
+    target_customers="office workers"
+)
+
+plan = result['deliverables']['plan']
+```
+
+### **Research with Custom Config**
+
+```python
+config = {
+    'llm': {'provider': 'gemini', 'temperature': 0.3},
+    'browser': {'headless': False}  # See browser in action
+}
+
+researcher = create_worker("researcher", "researcher", config)
+result = researcher.call(
+    "Research the best programming languages for AI development",
+    focus="2024 trends",
+    max_results=10
+)
+
+research_data = result['deliverables']['research']
+```
+
+### **Coding with OpenAI**
+
+```python
+config = {'llm': {'provider': 'openai', 'model': 'gpt-4'}}
+coder = create_worker("coder", "coder", config)
+
+result = coder.call(
+    "Create a REST API for user authentication",
+    language="python",
+    framework="flask",
+    database="postgresql"
+)
+
+# Save generated code
+code_data = result['deliverables']['code']
+with open(code_data['filename'], 'w') as f:
+    f.write(code_data['content'])
+```
+
+## 🎮 Advanced Usage
+
+### **Multiple Workers with Different LLMs**
+
+```python
+# Gemini for research
+researcher = create_worker("researcher", "researcher",
+    {'llm': {'provider': 'gemini'}})
+
+# OpenAI for coding
+coder = create_worker("coder", "coder",
+    {'llm': {'provider': 'openai'}})
+
+# Mock for quick planning
+planner = create_worker("planner", "planner")  # Uses mock
+
+# Use them together
+research = researcher.call("Research Python web frameworks")
+plan = planner.call("Create development timeline")
+code = coder.call("Generate Flask app structure")
+```
+
+### **Custom Parameters**
+
+```python
+# Task-specific parameters
+result = worker.call(
+    "Create a mobile app wireframe",
+    platform="iOS",
+    target_audience="teenagers",
+    key_features=["social", "gaming", "messaging"],
+    timeline="3 months",
+    budget="$15000"
+)
+```
+
+### **Worker Management**
+
+```python
+# Check worker status
+status = worker.get_status()
+print(f"Worker: {status['name']} ({status['role']})")
+print(f"Tasks completed: {status['tasks_completed']}")
+print(f"Capabilities: {status['capabilities']}")
+
+# View task history
+history = worker.get_history()
+for task in history:
+    print(f"Task: {task['instructions']}")
+    print(f"Success: {task['result']['success']}")
+
+# Clean shutdown
+worker.shutdown()
+```
+
+## 📦 Result Structure
+
+Every task returns comprehensive results:
+
+```python
+result = {
+    'task': 'Original instructions',
+    'worker': 'worker_name',
+    'role': 'worker_role',
+    'success': True,
+    'execution_time': 12.3,
+    'quality_score': 0.9,
+    'summary': 'What was accomplished',
+    'deliverables': {
+        'plan': 'Generated plan content...',
+        'code': {
+            'content': 'Generated code...',
+            'filename': 'generated_code.py',
+            'language': 'python',
+            'tested': True
+        },
+        'research': {
+            'results': [...],
+            'total_found': 15,
+            'search_query': 'query used'
+        },
+        'documents': [
+            {'title': 'Document name', 'url': 'access_link'}
+        ]
+    },
+    'next_steps': [
+        'Review the results...',
+        'Begin implementation...'
+    ]
+}
+```
+
+## 🔧 Available Tools (All Workers Have Access)
+
+### **🧠 Core Intelligence**
+- **thinking** - Advanced reasoning and problem-solving
+- **planning** - Strategic and project planning  
+- **problem_solving** - Analytical problem resolution
+
+### **🌐 Web & Research**
+- **web_search** - Real Google/Bing search with result extraction
+- **research** - Comprehensive information gathering from multiple sources
+- **browser_automation** - Full browser control (navigate, click, extract, screenshot)
+
+### **💻 Development & Code**
+- **coding** - Generate code in Python, JavaScript, and other languages
+- **testing** - Create and run test cases for code validation
+- **data_analysis** - Analyze datasets and extract insights
+
+### **📄 Content & Documents**
+- **document_creation** - Create Google Docs, Word documents, PDFs
+- **spreadsheet_creation** - Create and manage Google Sheets, Excel files
+- **content_creation** - Write articles, blogs, reports, marketing content
+
+### **📧 Communication**
+- **email_processing** - Read, organize, and send emails
+- **communication** - Professional communication and messaging
+
+### **🤝 Collaboration Features**
+- **Human-like memory** - Store and recall important information with intelligent filtering
+- **Worker collaboration** - Discover other active workers and delegate tasks
+- **Task delegation** - Assign specialized work to expert workers
+- **Shared context** - Workers can share knowledge and build on each other's work
+
+## 🌟 Key Features
+
+- **Universal Tool Access** - All 14 tools available to every worker
+- **Multiple LLM Support** - Gemini 2.5 Flash, OpenAI, Mock AI
+- **Zero Configuration** - Works immediately with mock AI
+- **Live Progress** - See exactly what the worker is doing
+- **Smart Planning** - Breaks down complex tasks automatically
+- **Human-like Memory** - Intelligent importance filtering and context retrieval
+- **Worker Collaboration** - Multiple workers can work together on complex projects
+- **Quality Validation** - Double-checks results before delivery
+- **Clean Interface** - Simple `create_worker()` and `.call()` methods
+- **Production Ready** - Robust error handling and resource management
+
+## 🏗️ Architecture
+
+See `ARCHITECTURE.md` for detailed system architecture and component overview.
+
+## 📞 Support
+
+- **Getting Started**: Run `python getting_started.py`
+- **Architecture**: See `ARCHITECTURE.md`
+- **Issues**: Check console output for detailed error messages
+
+---
+
+**Ready to create your first AI worker?** Run `python getting_started.py` and see it in action! 🚀

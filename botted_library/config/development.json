@@ -1,0 +1,64 @@
+{
+  "environment": "development",
+  "debug_mode": true,
+  "log_level": "DEBUG",
+  "log_file_path": "logs/botted_library_dev.log",
+  
+  "server_host": "localhost",
+  "server_port": 8765,
+  "server_max_connections": 50,
+  "server_timeout": 30,
+  "server_ssl_enabled": false,
+  
+  "max_workers_per_type": {
+    "PLANNER": 3,
+    "EXECUTOR": 10,
+    "VERIFIER": 5
+  },
+  "worker_timeout": 300,
+  "worker_heartbeat_interval": 30,
+  "worker_max_memory_mb": 512,
+  "worker_max_cpu_percent": 70.0,
+  
+  "max_collaborative_spaces": 20,
+  "max_participants_per_space": 10,
+  "space_timeout": 1800,
+  "space_cleanup_interval": 180,
+  
+  "plugin_directories": [
+    "plugins",
+    "dev_plugins",
+    "~/.botted_library/dev_plugins"
+  ],
+  "auto_load_plugins": true,
+  "plugin_timeout": 30,
+  "max_plugins": 50,
+  
+  "tool_timeout": 180,
+  "max_concurrent_tools": 5,
+  "tool_retry_attempts": 2,
+  "tool_cache_enabled": true,
+  "tool_cache_size_mb": 128,
+  
+  "enable_monitoring": true,
+  "monitoring_interval": 15,
+  "metrics_retention_days": 3,
+  "performance_alerts_enabled": false,
+  "performance_threshold_cpu": 80.0,
+  "performance_threshold_memory": 75.0,
+  
+  "enable_error_recovery": true,
+  "max_retry_attempts": 2,
+  "retry_delay": 0.5,
+  "retry_exponential_backoff": true,
+  "error_notification_enabled": false,
+  
+  "message_queue_size": 500,
+  "message_batch_size": 5,
+  "cleanup_interval": 180,
+  "gc_interval": 300,
+  
+  "enable_authentication": false,
+  "database_backup_enabled": false,
+  "test_mode": false
+}
